@@ -1,2 +1,5 @@
+friends = ["Gabe" , "Minato" , "Peter"]
 
-print ("this is a test")
+for friend in friends:
+    print(friend)
+
