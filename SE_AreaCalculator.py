@@ -1,19 +1,48 @@
+#This subroutine will get the lenght and width of the user's rectangle
+
+def getRectangleSides():
+    
+    #Ask the user for the lenght and width of the rectangle
+    width = input("Enter the width of the rectangle: ")
+    length = input("Enter the length of the rectangle: ")
+    dimensions = length , width
+   
+def validateDimensions(dimensions):
+
+    valid = True
+
+    try:
+        for dimension in dimensions:
+            intDimensions = int(dimensions)
+            if intDimensions <= 0:
+                valid = False
+    except ValueError:
+        valid = False
+    return valid
 
 
 
 
 
 
+    
 
 
-# This function displays a menu to select a shape for area calculation.
+
+
+
+
+# This function displays a menu for the user to select a shape for area calculation.
 
 def AreaMenu():
     
-    print("Which shape area do you wish to calculate?")
+    print("Which shape's area do you wish to calculate?")
     print("1. Rectangle")
     print("2. Triangle")
     print("3. Circle")
+    print("0. Back to main menu")
 
-    user_area_selection = int(input("Input the number of your selection: "))
+    user_area_selection = input("Input the number of your selection: ")
+
+
     
