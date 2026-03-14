@@ -1,6 +1,7 @@
 # This is the mainline module
 # It will control the main menu and call the other modules as requested
 from SE_IdentifyingTriangles import identifyTrianglesModule
+from SE_AreaCalculator import areaModuleMenu
 
 def main():
 
@@ -22,13 +23,13 @@ def main():
         if option == "1":
             identifyTrianglesModule()
         elif option == "2":
-            pass
+            areaModuleMenu
         elif option == "3":
             pass
         elif option == "4":
             pass
         elif option == "0":
-            pass
+            passy
         else:
             print("Please enter a valid option")
 
