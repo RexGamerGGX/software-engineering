@@ -1,4 +1,3 @@
-from SE_Main import main
 #This subroutine will get the lenght and width of the user's rectangle
 
 def getRectangleSides():
@@ -22,18 +21,6 @@ def validateDimensions(dimensions):
         valid = False
     return valid
 
-
-
-
-
-
-    
-
-
-
-
-
-
 # This function displays a menu for the user to select a shape for area calculation.
 
 def areaModuleMenu():
@@ -47,14 +34,14 @@ def areaModuleMenu():
         print("3. Circle")
         print("0. Back to main menu")
 
-    user_area_selection = input("Input the number of your selection: ")
+        user_area_selection = input("Input the number of your selection: ")
 
-    if user_area_selection == "1":
-        pass
-    if user_area_selection == "2":
-        pass
-    if user_area_selection == "3":
-        pass
-    if user_area_selection == "0":
-        main()
+        if user_area_selection == "1":
+            pass
+        if user_area_selection == "2":
+            pass
+        if user_area_selection == "3":
+            pass
+        if user_area_selection == "0":
+            return
 

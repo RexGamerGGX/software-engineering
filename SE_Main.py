@@ -23,13 +23,13 @@ def main():
         if option == "1":
             identifyTrianglesModule()
         elif option == "2":
-            areaModuleMenu
+            areaModuleMenu()
         elif option == "3":
             pass
         elif option == "4":
             pass
         elif option == "0":
-            passy
+            pass
         else:
             print("Please enter a valid option")
 
