@@ -1,6 +1,7 @@
 # This is the mainline module
 # It will control the main menu and call the other modules as requested
-import identifyTrianglesModule
+from SE_IdentifyingTriangles import identifyTrianglesModule
+
 def main():
 
     print("Welcome the Maths Ed program")
