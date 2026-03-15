@@ -2,6 +2,7 @@
 # It will control the main menu and call the other modules as requested
 from SE_IdentifyingTriangles import identifyTrianglesModule
 from SE_AreaCalculator import areaModuleMenu
+from SE_Utils import clear_console
 
 def main():
 
@@ -11,6 +12,7 @@ def main():
     option = "99"
     while option != "0":
 
+        clear_console()
         print("\nSelect from the following options: ")
         print("  1: Identify Triangles")
         print("  2: Area Calculator")
