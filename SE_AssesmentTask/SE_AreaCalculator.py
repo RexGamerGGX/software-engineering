@@ -1,5 +1,6 @@
 from SE_RectangleArea import rectangleAreaModule
 from SE_TriangleArea import triangleAreaModule
+from SE_CircleArea import circleAreaModule
 from SE_Utils import clear_console
 
 # This is the area main menu function that displays a menu for the user to select a shape for area calculation.
@@ -19,16 +20,17 @@ def areaModuleMenu():
         print("2. Triangle")
         print("3. Circle")
         print("0. Back to main menu")
+        print ("") 
 
         # Get the user's selection and call the appropriate subroutine based on their choice.
-        user_area_selection = input("Input the number of your selection: ")
+        user_area_selection = input("Enter your selection: ")
 
         if user_area_selection == "1":
             rectangleAreaModule()
         elif user_area_selection == "2":
             triangleAreaModule()
         elif user_area_selection == "3":
-            pass
+            circleAreaModule()
         elif user_area_selection == "0":
             return
         else:

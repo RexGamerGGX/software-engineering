@@ -1,32 +1,27 @@
 from SE_Utils import clear_console
-from SE_Validation import validatePositive
+from SE_Validation import validatePositive, validateIntegerDataInput
 #This subroutine will get the length and width of the user's rectangle
 def getRectangleSides():
-    isValid = False    
-    while isValid == False: 
-        clear_console()
-        #Ask the user for the length and width of the rectangle
-        width = input("Enter the width of the rectangle. Whole numbers and decimals are allowed: ")
-        length = input("Enter the length of the rectangle. Whole numbers and decimals are allowed: ")
-        #Return the width and length as floats
-        try:
-            f_width = float(width)
-            f_length = float(length)
-            isValid = True
-        except  ValueError:
-            print("Invalid input. Please enter valid numbers using (.) for decimals.")
-            quit = input("To quit the area calculator menu, press q. To try again, press enter: ")
-            if (quit == "q"):
-                return 0, 0, False
 
-    return f_width, f_length, isValid
+    isValid = False 
+
+    clear_console()   
+    
+    #Get the width and length of the rectangle from the user, and return them as integers, along with whether or not they are valid
+    print("Enter the dimensions of the rectangle to calculate its area (positive integers only).")
+    isValid, outputs = validateIntegerDataInput("Enter the width of the rectangle: ", "Enter the length of the rectangle: ")
+    if isValid:
+        int_width, int_length = outputs
+        return int_width, int_length, isValid
+    
+    return 0, 0, False
 
 # This subroutine will calculate the area of a rectangle given its width and length
 # and display the result to the user. The area will be displayed to two decimal places.
 def rectangleArea(width, length):
 
     area = width * length
-    print(f"The area of the rectangle is: {float(area):.2f}")
+    print(f"The area of the rectangle is: {area}")
     print("")
     input("Press enter to continue...")
 
