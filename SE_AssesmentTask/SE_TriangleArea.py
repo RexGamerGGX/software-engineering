@@ -28,11 +28,24 @@ def triangleArea(base, height):
 # This is the main function for the triangle area calculator module. It will call the other subroutines
 # to get the dimensions of the triangle, validate them, and calculate the area if they are valid.
 def triangleAreaModule():
+    while True:
+        base, height, isValid = getTriangleDimensions()
 
-    base, height, isValid = getTriangleDimensions()
-
-    # Validate the base and height. If they are valid, calculate the area of the triangle.
-    if isValid and validatePositive(base) and validatePositive(height):
-        triangleArea(base, height)
-    else:
-        input("Press enter to continue...")
+        # Validate the base and height. If they are valid, calculate the area of the triangle.
+        if isValid and validatePositive(base) and validatePositive(height):
+            triangleArea(base, height)
+        else:
+            input("Press enter to continue...")
+        print ("")
+        print("What would you like to do next?")
+        print("1. Calculate the area of another triangle")
+        print("0. Back to area calculator menu")
+        choice = input("Enter the number of your selection: ")
+        if choice == "1":
+            continue
+        elif choice == "0":
+            return
+        else:
+            print("Invalid selection. Returning to area calculator menu.")
+            input("Press enter to continue...")
+            return

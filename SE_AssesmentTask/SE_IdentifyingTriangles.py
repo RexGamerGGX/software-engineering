@@ -1,38 +1,25 @@
+from SE_Validation import validateIntegerDataInput
+from SE_Validation import validatePositive
+from SE_Utils import clear_console
 # This subroutine will get three sides from the user
 # These will be returned in a list of strings
 def getTriangleSides():
+    
+    clear_console()
 
-    # Initialise the sides as an empty list
-    sides = []
+    print("Enter the three triangle sides (positive integers only).")
 
-    print("\nEnter the three triangle sides as integers greater than zero")
-    for i in range(3):
-        sides.append(input("Enter a side length: "))
-    print("")
+    isvalid = False
+    
+    
+    isValid, outputs = validateIntegerDataInput("Enter a side length: ", "Enter a side length: ", "Enter a side length: ")
+    if isValid:
+        side1, side2, side3 = outputs
+        return [side1, side2, side3], True
+    
+    return [], False
 
-    return sides
-
-
-# This subroutine will accept a list of three side lengths of type string
-# It will validate the sides and return whether or not the sides are valid
-# Valid sides are positive integers
-def validateSides(sides):
-
-    valid = True
-
-    # Attempt to convert the sides to integers in a "try"
-    # If this fails it will be caught in the "except"
-    try:
-        for sideLength in sides:
-            intSideLength = int(sideLength)
-
-            # Check if positive
-            if intSideLength <= 0:
-                valid = False
-    except ValueError:
-        valid = False
-
-    return valid
+  
 
 
 # This subroutine will accept a valid list of three side lengths of type
@@ -62,7 +49,7 @@ def classifyTriangle(sides):
             sides[0] == sides[2] or
             sides[1] == sides[2]):
 
-            print("This is an isocelles triangle")
+            print("This is an isoceles triangle")
         else:
             print("This is a scalene triangle")
 
@@ -74,23 +61,30 @@ def classifyTriangle(sides):
 # This is the controlling module for the identify triangles feature
 def identifyTrianglesModule():
 
-    cont = "y"
-    while cont == "y":
+    while True:
 
-        sides = getTriangleSides()
+        sides, isValid = getTriangleSides()
 
-        # If the sides are valid, convert to a sorted integer list
-        #   and classify them
-        # Otherwise print an error
-        if validateSides(sides):
-            for i in range(3):
-                sides[i] = int(sides[i])
+        if isValid and validatePositive(sides[0]) and validatePositive(sides[1]) and validatePositive(sides[2]):
             sides.sort()
+
             classifyTriangle(sides)
         else:
-            print("Please enter side lengths as positive integers larger than zero")
+            input("Press enter to continue...")
 
-        # Ask if user wants to continue
-        print("")
-        cont = input(("Enter 'y' to continue with triangle classifications. "
-                      "Or any other key to return to the main menu: "))
+        print ("")
+        print("What would you like to do next?")
+        print("1. Classify another triangle")
+        print("0. Back to main menu")
+        choice = input("Enter the number of your selection: ")
+        if choice == "1":
+            continue
+        elif choice == "0":
+            return
+        else:
+            print("Invalid selection. Returning to main menu.")
+            input("Press enter to continue...")
+            return
+
+
+    

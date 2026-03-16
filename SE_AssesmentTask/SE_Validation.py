@@ -10,7 +10,7 @@ def validatePositive(value):
     
     return valid
 
-# This subroutine will validate if the data entered by the user for area calculation is valid.
+# This subroutine will validate if the data entered by the user is valid.
 # It will return whether or not the data is valid, and the data as integers if it is valid. Valid data are integers (no decimals).
 def validateIntegerDataInput(*args):
     valid = True
@@ -29,8 +29,10 @@ def validateIntegerDataInput(*args):
                 print("Invalid input. Please enter valid integers (no decimals).")
                 print("")
                 # if the input is invalid, ask the user if they want to try again. If they do not, return that the data is invalid.
-                choice = input("Press y to try again, or enter to quit: ")
+                choice = input("Press y to try again, or any other key to quit: ")
                 if choice != "y":
                     return False , []    
+                    
 
     return valid, outputs
+

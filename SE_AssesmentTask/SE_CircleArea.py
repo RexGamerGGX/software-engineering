@@ -28,11 +28,24 @@ def circleArea(radius):
 # This is the main function for the circle area calculator module. It will call the other subroutines
 # to get the dimensions of the circle, validate them, and calculate the area if they are valid.
 def circleAreaModule():
+    while True:
+        radius, isValid = getCircleSides()
 
-    radius, isValid = getCircleSides()
-
-    # Validate the radius. If it is valid, calculate the area of the circle.
-    if isValid and validatePositive(radius):
-        circleArea(radius)
-    else:
-        input("Press enter to continue...")
+        # Validate the radius. If it is valid, calculate the area of the circle.
+        if isValid and validatePositive(radius):
+            circleArea(radius)
+        else:
+            input("Press enter to continue...")
+        print ("")
+        print("What would you like to do next?")
+        print("1. Calculate the area of another circle")
+        print("0. Back to area calculator menu")
+        choice = input("Enter the number of your selection: ")
+        if choice == "1":
+            continue
+        elif choice == "0":
+            return
+        else:
+            print("Invalid selection. Returning to area calculator menu.")
+            input("Press enter to continue...")
+            return

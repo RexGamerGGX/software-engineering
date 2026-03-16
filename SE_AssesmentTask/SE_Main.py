@@ -2,6 +2,7 @@
 # It will control the main menu and call the other modules as requested
 from SE_IdentifyingTriangles import identifyTrianglesModule
 from SE_AreaCalculator import areaModuleMenu
+from SE_Pythagoras import pythagSideMenu
 from SE_Utils import clear_console
 
 def main():
@@ -17,6 +18,7 @@ def main():
         print("  1: Identify Triangles")
         print("  2: Area Calculator")
         print("  3: Pythagoras' Theorem")
+        print("  4: Area Quiz")
         print("  0: Quit")
 
         option = input("\nEnter your selection: ")
@@ -27,13 +29,16 @@ def main():
         elif option == "2":
             areaModuleMenu()
         elif option == "3":
-            pass
+            pythagSideMenu()
         elif option == "4":
             pass
         elif option == "0":
+            print ("Thank you for using the Maths Ed program. Goodbye!")
             pass
         else:
-            print("Please enter a valid option")
+            print ("")
+            print("Please enter one of the available options.")
+            input("Press enter to try again...")
 
 
 # This code is a Python convention to call the main subroutine

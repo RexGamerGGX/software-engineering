@@ -29,10 +29,24 @@ def rectangleArea(width, length):
 # to get the dimensions of the rectangle, validate them, and calculate the area if they are valid.
 def rectangleAreaModule():
     
+    while True:
+        width, length, isValid = getRectangleSides()
 
-    width, length, isValid = getRectangleSides()
-# 
-    if isValid and validatePositive(width) and validatePositive(length):
-        rectangleArea(width, length)
-    else:
-        input("Press enter to continue...")
+        if isValid and validatePositive(width) and validatePositive(length):
+            rectangleArea(width, length)
+        else:
+            input("Press enter to continue...")
+        print ("")
+        print("What would you like to do next?")
+        print("1. Calculate the area of another rectangle")
+        print("0. Back to area calculator menu")
+
+        choice = input("Enter the number of your selection: ")
+        if choice == "1":
+            continue
+        elif choice == "0":
+            return
+        else:
+            print("Invalid selection. Returning to area calculator menu.")
+            input("Press enter to continue...")
+            return
