@@ -1,8 +1,9 @@
 from SE_Validation import validateIntegerDataInput
 from SE_Validation import validatePositive
 from SE_Utils import clear_console
-# This subroutine will get three sides from the user
-# These will be returned in a list of strings
+
+# This subroutine will get the three sides of the triangle from the user, 
+# and return them as a list of integers, along with whether or not they are valid
 def getTriangleSides():
     
     clear_console()
@@ -18,8 +19,6 @@ def getTriangleSides():
         return [side1, side2, side3], True
     
     return [], False
-
-  
 
 
 # This subroutine will accept a valid list of three side lengths of type
@@ -59,10 +58,11 @@ def classifyTriangle(sides):
 
 
 # This is the controlling module for the identify triangles feature
+# It will call the other subroutines to get the sides of the triangle, validate them, and classify the triangle if they are valid.
 def identifyTrianglesModule():
 
     while True:
-
+        # Get the sides of the triangle from the user, and validate them. If they are valid, classify the triangle.
         sides, isValid = getTriangleSides()
 
         if isValid and validatePositive(sides[0]) and validatePositive(sides[1]) and validatePositive(sides[2]):
@@ -71,7 +71,10 @@ def identifyTrianglesModule():
             classifyTriangle(sides)
         else:
             input("Press enter to continue...")
-
+        # After classifying the triangle, ask the user if they want to classify another triangle or return to the main menu. 
+        # If they want to classify another triangle, repeat the process. 
+        # If they want to return to the main menu, return from the function. 
+        # If they enter an invalid option, return to the main menu.
         print ("")
         print("What would you like to do next?")
         print("1. Classify another triangle")
