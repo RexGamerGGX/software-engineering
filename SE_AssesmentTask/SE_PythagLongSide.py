@@ -27,6 +27,7 @@ def findUnknownLongSide(short1, short2):
 
 # This is the main function for the long side calculator module. It will call the other subroutines
 # to get the dimensions of the triangle, validate them, and calculate the long side if they are valid.
+# Return string "Main" if the user wants to return to the main menu, and return None if they want to return to the pythagorean menu.
 def longSideModule():
     while True:
         short1, short2, isValid = getShortSides()
@@ -36,21 +37,26 @@ def longSideModule():
             findUnknownLongSide(short1, short2)
         else:
             input("Press enter to continue...")
-        # After calculating the long side, ask the user if they want to calculate another long side or return to the pythagorean menu.
-        # If they want to calculate another long side, repeat the process.
-        # If they want to return to the pythagorean menu, return from the function.
-        # If they enter an invalid option, return to the pythagorean menu.
 
+        # After calculating the long side, ask the user if they want to calculate another long side or return to the pythagorean menu.
+        # or return to the main menu.
         print ("")
         print("What would you like to do next?")
         print("1. Calculate the hypotenuse of another triangle")
-        print("0. Back to Pythagorean menu")
+        print("2. Back to Pythagorean menu")
+        print("0. Back to main menu.")
+
+        # If they want to calculate another long side, repeat the process.
+        # If they want to return to the pythagorean menu, return from the function.
+        # If they enter an invalid option, return to the pythagorean menu.
         choice = input("Enter the number of your selection: ")
         
         if choice == "1":
             continue
-        elif choice == "0":
+        elif choice == "2":
             return
+        elif choice == "0":
+            return "Main"
         else:
             print("Invalid selection. Returning to Pythagorean menu.")
             input("Press enter to continue...")

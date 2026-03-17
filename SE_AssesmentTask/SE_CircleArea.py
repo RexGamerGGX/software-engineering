@@ -1,7 +1,7 @@
 from SE_Validation import validatePositive, validateIntegerDataInput 
 from SE_Utils import clear_console
 # This subroutine will get the radius of the user's circle
-def getCircleSides():
+def getCircleRadius():
 
 
     isValid = False 
@@ -27,24 +27,36 @@ def circleArea(radius):
 
 # This is the main function for the circle area calculator module. It will call the other subroutines
 # to get the dimensions of the circle, validate them, and calculate the area if they are valid.
+# Return string "Main" if the user wants to return to the main menu, and return None if they want to return to the area calculator menu.
 def circleAreaModule():
     while True:
-        radius, isValid = getCircleSides()
+        radius, isValid = getCircleRadius()
 
         # Validate the radius. If it is valid, calculate the area of the circle.
         if isValid and validatePositive(radius):
             circleArea(radius)
         else:
             input("Press enter to continue...")
+
+        # After calculating the area, ask the user if they want to calculate the area of another circle
+        # or return to the area calculator menu.
         print ("")
         print("What would you like to do next?")
         print("1. Calculate the area of another circle")
-        print("0. Back to area calculator menu")
+        print("2. Back to area calculator menu")
+        print("0. Back to main menu.")
+
+        # If they want to calculate the area of another circle, repeat the process.
+        # If they want to return to the area calculator menu, return from the function.
+        # If they enter an invalid option, return to the area calculator menu.
         choice = input("Enter the number of your selection: ")
+        
         if choice == "1":
             continue
-        elif choice == "0":
+        elif choice == "2":
             return
+        elif choice == "0":
+            return "Main"
         else:
             print("Invalid selection. Returning to area calculator menu.")
             input("Press enter to continue...")

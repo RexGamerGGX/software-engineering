@@ -8,11 +8,12 @@ def getTriangleSides():
     
     clear_console()
 
+    print("Welcome to the triangle classification module.")
     print("Enter the three triangle sides (positive integers only).")
 
-    isvalid = False
+    isValid = False
     
-    
+    # Get the three sides of the triangle from the user, and return them as a list of integers, along with whether or not they are valid
     isValid, outputs = validateIntegerDataInput("Enter a side length: ", "Enter a side length: ", "Enter a side length: ")
     if isValid:
         side1, side2, side3 = outputs
@@ -28,7 +29,7 @@ def getTriangleSides():
 #  - Isoscelles
 #  - Equilateral
 #  - Scalene
-#  - Right Angled (isoscelles and scalene triangles will be checked for this)
+#  - Right Angled (isosceles and scalene triangles will be checked for this)
 #  - Impossible triangle
 def classifyTriangle(sides):
 
@@ -48,7 +49,7 @@ def classifyTriangle(sides):
             sides[0] == sides[2] or
             sides[1] == sides[2]):
 
-            print("This is an isoceles triangle")
+            print("This is an isosceles triangle")
         else:
             print("This is a scalene triangle")
 
@@ -67,19 +68,21 @@ def identifyTrianglesModule():
 
         if isValid and validatePositive(sides[0]) and validatePositive(sides[1]) and validatePositive(sides[2]):
             sides.sort()
-
             classifyTriangle(sides)
         else:
             input("Press enter to continue...")
+
         # After classifying the triangle, ask the user if they want to classify another triangle or return to the main menu. 
-        # If they want to classify another triangle, repeat the process. 
-        # If they want to return to the main menu, return from the function. 
-        # If they enter an invalid option, return to the main menu.
         print ("")
         print("What would you like to do next?")
         print("1. Classify another triangle")
         print("0. Back to main menu")
+        
+        # If they want to classify another triangle, repeat the process. 
+        # If they want to return to the main menu, return from the function. 
+        # If they enter an invalid option, return to the main menu.
         choice = input("Enter the number of your selection: ")
+
         if choice == "1":
             continue
         elif choice == "0":

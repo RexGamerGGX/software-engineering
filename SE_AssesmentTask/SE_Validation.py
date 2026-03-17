@@ -12,6 +12,8 @@ def validatePositive(value):
 
 # This subroutine will validate if the data entered by the user is valid.
 # It will return whether or not the data is valid, and the data as integers if it is valid. Valid data are integers (no decimals).
+# The subroutine will take in a variable number of arguments, which are the prompts for the user to enter data.
+# It will return a list of the data entered by the user as integers if it is valid, and an empty list if it is not valid.
 def validateIntegerDataInput(*args):
     valid = True
     outputs = []
@@ -33,6 +35,11 @@ def validateIntegerDataInput(*args):
                 if choice != "y":
                     return False , []    
                     
-
     return valid, outputs
 
+def validatePythagSides(long, short):
+    valid = True
+    if long <= short:
+        print("The long side must be greater than the short side.")
+        valid = False
+    return valid

@@ -1,6 +1,7 @@
 from SE_Utils import clear_console
 from SE_Validation import validatePositive, validateIntegerDataInput
-#This subroutine will get the length and width of the user's rectangle
+
+#This subroutine will get the length and width of the user's rectangle 
 def getRectangleSides():
 
     isValid = False 
@@ -27,6 +28,7 @@ def rectangleArea(width, length):
 
 # This is the main function for the area calculator module. It will call the other subroutines 
 # to get the dimensions of the rectangle, validate them, and calculate the area if they are valid.
+# Return string "Main" if the user wants to return to the main menu, and return None if they want to return to the area calculator menu.
 def rectangleAreaModule():
     
     while True:
@@ -36,16 +38,25 @@ def rectangleAreaModule():
             rectangleArea(width, length)
         else:
             input("Press enter to continue...")
+
+        # After calculating the area, ask the user if they want to calculate the area of another rectangle
+        # or return to the area calculator menu.
         print ("")
         print("What would you like to do next?")
         print("1. Calculate the area of another rectangle")
-        print("0. Back to area calculator menu")
+        print("2. Back to area calculator menu")
+        print("0. Back to main menu.")
 
+        # If they want to calculate the area of another rectangle, repeat the process.
+        # If they want to return to the area calculator menu, return from the function.
+        # If they enter an invalid option, return to the area calculator menu.
         choice = input("Enter the number of your selection: ")
         if choice == "1":
             continue
-        elif choice == "0":
+        elif choice == "2":
             return
+        elif choice == "0":
+            return "Main"
         else:
             print("Invalid selection. Returning to area calculator menu.")
             input("Press enter to continue...")
