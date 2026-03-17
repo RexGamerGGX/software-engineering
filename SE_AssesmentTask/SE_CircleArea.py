@@ -9,6 +9,7 @@ def getCircleRadius():
     clear_console()   
    
     #Get the radius of the circle from the user, and return it as an integer, along with whether or not it is valid
+    print("Enter the radius of the circle to calculate its area (positive integers only).")
     isValid, outputs = validateIntegerDataInput("Enter the radius of the circle: ")
     if isValid:
         int_radius = outputs[0]

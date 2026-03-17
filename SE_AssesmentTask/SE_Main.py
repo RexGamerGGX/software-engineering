@@ -11,15 +11,14 @@ def main():
     # This loop is for the main menu and will continue to run until the user selects the option to quit the program.
     option = "99"
     while option != "0":
-        
+
         # Display the main menu and get the user's selection.
         clear_console()
         print("Welcome the Maths Ed program")
         print("\nSelect from the following options: ")
         print("  1: Identify Triangles")
         print("  2: Area Calculator")
-        print("  3: Pythagoras' Theorem")
-        print("  4: Area Quiz")
+        print("  3: Pythagoras Theorem")
         print("  0: Quit")
 
         option = input("\nEnter your selection: ")
@@ -32,8 +31,6 @@ def main():
             areaModuleMenu()
         elif option == "3":
             pythagSideMenu()
-        elif option == "4":
-            pass
         elif option == "0":
             print ("Thank you for using the Maths Ed program. Goodbye!")
             pass
