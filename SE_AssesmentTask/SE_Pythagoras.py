@@ -2,6 +2,8 @@ from SE_PythagShortSide import shortSideModule
 from SE_PythagLongSide import longSideModule
 from SE_Utils import clear_console
 
+# This is the controlling module for the pythagorean theorem feature. 
+# It will call the other subroutines to get the sides of the triangle, validate them, and calculate the unknown side if they are valid.
 def pythagSideMenu():
     
     print("Welcome to the pythagorean theorem module.")
